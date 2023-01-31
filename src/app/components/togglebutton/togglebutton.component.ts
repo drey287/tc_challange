@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ClientTableComponent } from "../client-table/client-table.component";
+import { ClientService } from "../../../services/client.service";
 
 @Component({
   selector: 'app-togglebutton',
@@ -8,11 +9,13 @@ import { ClientTableComponent } from "../client-table/client-table.component";
 })
 export class TogglebuttonComponent {
 
-
-  constructor(public ct: ClientTableComponent) {
+  constructor(public cs: ClientService, public clientTable: ClientTableComponent) {
   }
 
+  toggle = false
+
   loadClientsTable(){
-    this.ct.toggleClass()
+    // this.cs.getClient()
+    this.clientTable.toggleClass()
   }
 }

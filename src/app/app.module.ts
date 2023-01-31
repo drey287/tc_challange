@@ -12,6 +12,13 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { BodyComponent } from './components/body/body.component';
 import { TogglebuttonComponent } from './components/togglebutton/togglebutton.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
+import {ClientTableDataSource } from "./components/client-table/client-table-datasource";
+import { IncercareComponent } from './components/incercare/incercare.component';
+import { MatDialogModule } from "@angular/material/dialog";
+import { MatButtonModule } from "@angular/material/button";
+import {MatTableDataSource} from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -20,7 +27,8 @@ import { TogglebuttonComponent } from './components/togglebutton/togglebutton.co
     SidebarComponent,
     ClientTableComponent,
     BodyComponent,
-    TogglebuttonComponent,
+    // TogglebuttonComponent,
+    IncercareComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,8 +37,16 @@ import { TogglebuttonComponent } from './components/togglebutton/togglebutton.co
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    MatButtonModule,
+    MatDialogModule
   ],
-  providers: [],
+  providers: [
+    ClientTableComponent,
+    ClientTableDataSource,
+    MatTableDataSource
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
