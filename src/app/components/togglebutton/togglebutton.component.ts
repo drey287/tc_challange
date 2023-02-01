@@ -11,9 +11,10 @@ export class TogglebuttonComponent {
 
   constructor(public cs: ClientService, public clientTable: ClientTableComponent) {
   }
-
   toggle = false
 
+
+  //@todo import to client
   loadClientsTable(){
     // this.cs.getClient()
     this.clientTable.toggleClass()

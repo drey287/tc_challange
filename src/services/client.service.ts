@@ -12,7 +12,7 @@ class Client {
 export class ClientService {
 
   dataSource: any[] = [];
-  private numberOfClients: number = 250;
+  private numberOfClients: number = 20;
   selectedImage: string | undefined;
   private apiUrl = "https://randomuser.me/api/?results="
 
@@ -29,7 +29,7 @@ export class ClientService {
           const results = responseData['results'];
 
           for (const result of results) {
-            console.log(result)
+            // console.log(result)
 
             const { name, email, picture, location } = result;
             clientArray.push({

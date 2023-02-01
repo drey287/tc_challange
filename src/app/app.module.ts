@@ -19,6 +19,10 @@ import { IncercareComponent } from './components/incercare/incercare.component';
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatButtonModule } from "@angular/material/button";
 import {MatTableDataSource} from '@angular/material/table';
+import {UserTableComponent} from "./components/user-table/user-table.component";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import { MatInputModule } from '@angular/material/input';
+import {TestTableFilterComponent} from "./components/test-table-filter/test-table-filter.component";
 
 @NgModule({
   declarations: [
@@ -29,6 +33,8 @@ import {MatTableDataSource} from '@angular/material/table';
     BodyComponent,
     // TogglebuttonComponent,
     IncercareComponent,
+    UserTableComponent,
+    TestTableFilterComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +46,9 @@ import {MatTableDataSource} from '@angular/material/table';
     BrowserAnimationsModule,
     HttpClientModule,
     MatButtonModule,
-    MatDialogModule
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [
     ClientTableComponent,
