@@ -15,49 +15,17 @@ export interface UserData {
   country: string;
 }
 
-/** Constants used to fill up our data base. */
-const FRUITS: string[] = [
-  'blueberry',
-  'lychee',
-  'kiwi',
-  'mango',
-  'peach',
-  'lime',
-  'pomegranate',
-  'pineapple',
-];
-const NAMES: string[] = [
-  'Maia',
-  'Asher',
-  'Olivia',
-  'Atticus',
-  'Amelia',
-  'Jack',
-  'Charlotte',
-  'Theodore',
-  'Isla',
-  'Oliver',
-  'Isabella',
-  'Jasper',
-  'Cora',
-  'Levi',
-  'Violet',
-  'Arthur',
-  'Mia',
-  'Thomas',
-  'Elizabeth',
-];
-
 /**
  * @title Data table with sorting, pagination, and filtering.
  */
 @Component({
-  selector: 'app-test-table-filter',
-  templateUrl: './test-table-filter.component.html',
-  styleUrls: ['./test-table-filter.component.scss']
+  selector: 'app-clients',
+  templateUrl: './clients.component.html',
+  styleUrls: ['./clients.component.scss']
 })
-export class TestTableFilterComponent implements AfterViewInit, OnInit {
-  displayedColumns: string[] = ['firstName', 'lastName', 'email', 'picture', 'country'];
+
+export class ClientsComponent implements AfterViewInit, OnInit {
+  displayedColumns: string[] = ['firstName', 'lastName', 'email', 'country', 'picture'];
   dataSource: MatTableDataSource<UserData>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
@@ -70,17 +38,16 @@ export class TestTableFilterComponent implements AfterViewInit, OnInit {
 
   ngOnInit() {
     this.clientService.fetchClient().subscribe(clients => {
-      console.log(clients, 'fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff')
       // @ts-ignore
       this.dataSource = new MatTableDataSource(clients);
     });
   }
 
   ngAfterViewInit() {
-    // // @ts-ignore
-    // this.dataSource.paginator = this.paginator;
-    // // @ts-ignore
-    // this.dataSource.sort = this.sort;
+    // @ts-ignore
+    this.dataSource.paginator = this.paginator;
+    // @ts-ignore
+    this.dataSource.sort = this.sort;
   }
 
   applyFilter(event: Event) {
@@ -92,9 +59,9 @@ export class TestTableFilterComponent implements AfterViewInit, OnInit {
     }
   }
 
-
   OpenPopup(image: string) {
     // console.log(image,'sssssssssssssssssssssssssssssssssssssssss')
     this.matdialog.open(ModalpopupComponent, {width: '20%', height:'420px', data: image})
   }
 }
+

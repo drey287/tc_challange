@@ -1,7 +1,6 @@
 import { Injectable, OnInit } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import {Observable, pipe, map} from "rxjs";
-import { ClientTableDataSource } from "../app/components/client-table/client-table-datasource";
 
 class Client {
 }
@@ -12,11 +11,11 @@ class Client {
 export class ClientService {
 
   dataSource: any[] = [];
-  private numberOfClients: number = 20;
+  private numberOfClients: number = 250;
   selectedImage: string | undefined;
   private apiUrl = "https://randomuser.me/api/?results="
 
-  constructor(private http: HttpClient, private CTD: ClientTableDataSource) { }
+  constructor(private http: HttpClient) { }
 
   // second solution
   public fetchClient(): Observable<Client[]> {

@@ -1,5 +1,4 @@
 import {Component, Inject, inject, OnInit} from '@angular/core';
-import { ClientTableComponent } from "../client-table/client-table.component";
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
@@ -11,15 +10,11 @@ export class ModalpopupComponent implements OnInit {
 
   selectedImage: string | undefined;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private ClientTC: ClientTableComponent ) {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any) {
   }
 
   ngOnInit(): void {
     this.selectedImage = this.data
     // console.log(this.data, "hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
-  }
-
-  closeDialog(){
-
   }
 }
